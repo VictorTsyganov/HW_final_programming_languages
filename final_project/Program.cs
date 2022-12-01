@@ -5,11 +5,14 @@
 
 Console.Clear();
 
-string[] Array = NewArray();
+string[] Array = GetArray();
 Console.WriteLine();
 PrintArray(Array);
+Console.WriteLine();
+string[] NewArr = NewArray(Array);
+PrintArray(NewArr);
 
-string[] NewArray()
+string[] GetArray()
 {
     Console.Write("Введите элементы массива через пробел: ");
     string[] arr = Console.ReadLine().Split();
@@ -18,8 +21,22 @@ string[] NewArray()
 
 void PrintArray(string[] arr)
 {
-    for (int i = 0; i < arr.Length; i++)
+    Console.Write("[");
+    for (int i = 0; i < arr.Length - 1; i++)
     {
         Console.Write($"{arr[i]} ");
     }
+    Console.Write($"{arr[arr.Length - 1]}]");
+}
+
+string[] NewArray(string[] arr)
+{
+    string res = string.Empty;
+    foreach (string item in arr)
+    {
+        if (item.Length < 4) res = res + $"{item} ";
+    }
+    string[] result = res.Split();
+    if (result.Length == 1) return result;
+    else return result = result.Take(result.Length - 1).ToArray();
 }
