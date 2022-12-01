@@ -10,3 +10,5 @@
 5. Использовали контроль версий в работе. Список выполненных коммитов:
     * add input and print massiv to program
     * add README file
+    * add NewArray function to programm change README
+    * final version and diagram
